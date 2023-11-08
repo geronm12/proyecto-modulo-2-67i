@@ -1,15 +1,18 @@
 import { LOCAL_STORAGE_KEYS } from "../configurations/keys.config.js";
 
-import { INITIAL_ROLES } from "../configurations/seed.js";
+import { INITIAL_ROLES, GAMES } from "../configurations/seed.js";
 
 import { LocalStorageLength, SetItem } from "./local-storage.app.js";
+import { createUser, login, logout } from "./user.app.js";
 
 if (LocalStorageLength === 0) {
   SetItem(LOCAL_STORAGE_KEYS.roles, INITIAL_ROLES);
-  //lo que está abajo es para probar la seguridad "hardcodeado"
-  SetItem(LOCAL_STORAGE_KEYS.activeUser, {
-    username: "admin",
-    theme: "white",
-    rol: INITIAL_ROLES.find((x) => x.id === 3),
-  });
+  SetItem(LOCAL_STORAGE_KEYS.productos, GAMES);
+  createUser(
+    "gnm",
+    "12345",
+    "gero",
+    "lopez",
+    INITIAL_ROLES.find((rol) => rol.id === 3)
+  );
 }

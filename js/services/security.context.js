@@ -7,7 +7,7 @@ import { GetItem } from "./local-storage.app.js";
 const userLogged = GetItem(LOCAL_STORAGE_KEYS.activeUser);
 const adminItem = document.getElementById("admin-item");
 
-if (userLogged !== null && userLogged !== undefined) {
+if (userLogged !== null) {
   if (userLogged.rol.id === ROLES_VALUES.ADMIN) {
     adminItem.style.display = "block";
   } else {

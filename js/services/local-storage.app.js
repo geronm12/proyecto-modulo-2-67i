@@ -9,4 +9,8 @@ function SetItem(key, item) {
   localStorage.setItem(key, JSON.stringify(item));
 }
 
-export { LocalStorageLength, GetItem, SetItem };
+function RemoveItem(key) {
+  localStorage.removeItem(key);
+}
+
+export { LocalStorageLength, GetItem, SetItem, RemoveItem };
