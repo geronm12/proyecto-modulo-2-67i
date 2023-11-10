@@ -10,15 +10,14 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Document</title>
+    <title>Charlas</title>
   </head>
   <body>
     <header>
       <nav>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="./pages/seminar.html">Charlas</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./seminar.html">Charlas</a></li>
           <li id="admin-item">Administracion</li>
           <li
             class="btn btn-primary"
@@ -27,12 +26,21 @@
           >
             Login
           </li>
-          <li class="btn btn-danger">Logout</li>
         </ul>
       </nav>
     </header>
+
+    <form>
+      <input type="text" />
+      <input type="text" />
+      <input type="text" />
+      <input type="date" />
+      <input type="password" />
+      <input type="password" />
+      <button>Registrar</button>
+    </form>
+
     <!--Login Modal-->
-    <!-- Button trigger modal -->
 
     <!-- Modal -->
     <div
@@ -45,10 +53,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
-              <span class="badge rounded-pill text-bg-warning">Login</span>
-              Inicia Sesión
-            </h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
             <button
               type="button"
               class="btn-close"
@@ -56,46 +61,16 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label class="form-label" for="email">Email</label>
-              <input
-                class="form-control"
-                type="email"
-                required
-                id="email"
-                placeholder="example@mail.com"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label" for="password">Password</label>
-              <input
-                class="form-control"
-                type="password"
-                required
-                id="password"
-                placeholder="Ingresa tu contraseña"
-              />
-            </div>
-
-            <div class="mb-3">
-              <a href="./pages/register.html"
-                >No tienes cuenta? regístrate acá.</a
-              >
-            </div>
-          </div>
+          <div class="modal-body">...</div>
           <div class="modal-footer">
             <button
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
-              id="close"
             >
-              Cerrar
+              Close
             </button>
-            <button id="login" type="button" class="btn btn-primary">
-              Iniciar Sesión
-            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
@@ -106,8 +81,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/services/init.app.js" type="module"></script>
-    <script src="js/services/security.context.js" type="module"></script>
-    <script src="./js/login.js" type="module"></script>
+    <script src="../js/services/security.context.js" type="module"></script>
   </body>
 </html>

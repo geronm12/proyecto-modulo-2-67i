@@ -17,15 +17,21 @@ const INITIAL_ROLES = [
   },
 ];
 
-const GAMES = [
+const SEMINARS = [
   {
-    id: 1,
-    name: "EA Footbal 23",
-    description:
-      "Juego de fútbol que es el mismo todos lo años y le cobran más dólares a la gente por las mismas mecánicas",
-    stars: 4,
+    id: crypto.randomUUID(),
+    title: "Introducción a HTML y CSS",
+    description: "Charla dictada por un expero en html.",
+    date: Date.now(),
+    time: "18:00hs",
     picture:
       "https://image.api.playstation.com/vulcan/ap/rnd/202310/0214/b449973c0d7f4afc176aa1debb996b472718ce0f4175e02b.png",
+    speakers: [
+      {
+        nombre: "gero",
+        apellido: "lopez",
+      },
+    ],
   },
 ];
 
@@ -35,4 +41,4 @@ const ROLES_VALUES = {
   ADMIN: 3,
 };
 
-export { INITIAL_ROLES, ROLES_VALUES, GAMES };
+export { INITIAL_ROLES, ROLES_VALUES, SEMINARS };

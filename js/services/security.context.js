@@ -16,3 +16,4 @@ if (userLogged !== null) {
 } else {
   adminItem.style.display = "none";
 }
+

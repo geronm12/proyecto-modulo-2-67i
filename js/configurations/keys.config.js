@@ -7,7 +7,6 @@ const LOCAL_STORAGE_KEYS = {
   seminar: "Seminarios",
   activeUser: "UsuarioLoggeado",
   roles: "Roles",
-  productos: "Productos",
 };
 
 export { LOCAL_STORAGE_KEYS };

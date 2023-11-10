@@ -3,6 +3,7 @@ import { SetItem, GetItem, RemoveItem } from "./local-storage.app.js";
 import { LOCAL_STORAGE_KEYS } from "../configurations/keys.config.js";
 import { ERROR_MESSAGES } from "../configurations/messages.config.js";
 import { GetError } from "../helpers/error.helpers.js";
+import { INITIAL_ROLES, ROLES_VALUES } from "../configurations/seed.js";
 
 //#region  Errores
 function GetErrorNotFound() {
@@ -25,6 +26,16 @@ function createUser(username, password, name, lastname, rol) {
   let users = getArrayAndReplace({ username, password, name, lastname, rol });
   //guardamos el array en el local storage
   SetItem(LOCAL_STORAGE_KEYS.user, users);
+}
+
+function createrUserRolCommon(username, password, name, lastname) {
+  createUser(
+    username,
+    password,
+    name,
+    lastname,
+    INITIAL_ROLES.find((rol) => rol.id === ROLES_VALUES.CONCURRENTE)
+  );
 }
 
 function getArrayAndReplace(newUser) {
@@ -79,6 +90,4 @@ function logout() {
 
 //#endregion Login and Logout
 
-
-
-export { createUser, login, logout };
+export { createUser, login, logout, createrUserRolCommon };
