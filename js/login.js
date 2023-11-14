@@ -6,6 +6,7 @@ import { ERROR_MESSAGES } from "./configurations/messages.config.js";
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const btnLogin = document.getElementById("login");
+const btnLogout = document.getElementById("logout");
 
 let _email, _password;
 
@@ -38,7 +39,7 @@ btnLogin.addEventListener("click", function () {
     setInterval(() => {
       const button = document.querySelector(".swal2-confirm");
       if (button === null) {
-        window.location.reload();
+        window.location.href = "/";
       }
     }, 500);
   } else {

@@ -1,0 +1,12 @@
+main {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+section:first-of-type {
+  display: grid;
+  place-items: center;
+}
+
+

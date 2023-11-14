@@ -26,12 +26,8 @@ const SEMINARS = [
     time: "18:00hs",
     picture:
       "https://image.api.playstation.com/vulcan/ap/rnd/202310/0214/b449973c0d7f4afc176aa1debb996b472718ce0f4175e02b.png",
-    speakers: [
-      {
-        nombre: "gero",
-        apellido: "lopez",
-      },
-    ],
+    stars: 5,
+    difficult: 1,
   },
 ];
 
