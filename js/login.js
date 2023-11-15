@@ -49,6 +49,6 @@ btnLogin.addEventListener("click", function () {
 
 btnLogout.addEventListener("click", function () {
   logout();
-  window.location.reload();
+  window.location.href = "/";
 });
 //#endregion Events

@@ -3,13 +3,7 @@ import { LOCAL_STORAGE_KEYS } from "../configurations/keys.config.js";
 
 //#region  Get User (R - Read - Leer)
 function getSeminars() {
-  let seminars = GetItem(LOCAL_STORAGE_KEYS.seminar);
-
-  if (seminars !== null) {
-    seminars.forEach((seminar) => {
-      seminar.modifySeminar = modifySeminar;
-    });
-  }
+  return GetItem(LOCAL_STORAGE_KEYS.seminar);
 }
 //#endregion
 
@@ -59,13 +53,26 @@ function updateSeminar(id, title, description, date, time, picture, speakers) {
 
 function deleteSeminar(id) {
   const seminars = getSeminars();
+
   if (seminars !== null && seminars.length > 0) {
     let newSeminarsArray = seminars.filter(function (seminar) {
-      seminar.id !== id;
+      return seminar.id !== id;
     });
+
     SetItem(LOCAL_STORAGE_KEYS.seminar, newSeminarsArray);
   }
 }
 
+function getSeminarById(id) {
+  const seminars = getSeminars();
+  return seminars.find((seminar) => seminar.id === id);
+}
+
 //#endregion
-export { getSeminars, createSeminar, deleteSeminar, updateSeminar };
+export {
+  getSeminars,
+  createSeminar,
+  deleteSeminar,
+  updateSeminar,
+  getSeminarById,
+};

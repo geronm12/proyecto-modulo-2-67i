@@ -16,7 +16,7 @@ function GetErrorNotMatch() {
 //#endregion
 
 //#region  Get User (R - Read - Leer)
-function GetUsers() {
+function getUsers() {
   return GetItem(LOCAL_STORAGE_KEYS.user);
 }
 //#endregion
@@ -40,7 +40,7 @@ function createrUserRolCommon(username, password, name, lastname) {
 
 function getArrayAndReplace(newUser) {
   //traer el array convertido en array
-  let users = GetUsers();
+  let users = getUsers();
   //en caso de que no exista ningún elemento creado lo convertir en array
   if (users === null) {
     users = [];
@@ -59,7 +59,7 @@ function login(username, password) {
   //verificar si el usuario existe
   //comparar en la base de datos si existe un
   //usuario con el mismo username y la misma contraseña
-  let users = GetUsers();
+  let users = getUsers();
 
   if (users === null) {
     return GetErrorNotFound();
@@ -90,4 +90,4 @@ function logout() {
 
 //#endregion Login and Logout
 
-export { createUser, login, logout, createrUserRolCommon };
+export { createUser, login, logout, createrUserRolCommon, getUsers };

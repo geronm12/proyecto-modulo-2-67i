@@ -34,8 +34,8 @@
       </nav>
     </header>
     <main>
-      <section class="container fluid">
-        <button class="btn btn-dark">Agregar</button>
+      <section class="container fluid center">
+        <button class="btn btn-dark">Agregar Seminario</button>
       </section>
       <section class="container mt-5">
         <table class="table">
@@ -49,8 +49,11 @@
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody id="seminars-table"></tbody>
         </table>
+      </section>
+      <section class="container fluid center">
+        <button class="btn btn-dark">Agregar Usuario</button>
       </section>
       <section class="container">
         <table class="table">
@@ -63,12 +66,12 @@
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody id="users-table"></tbody>
         </table>
       </section>
     </main>
 
-    <!-- Modal -->
+    <!-- Login Modal -->
     <div
       class="modal fade"
       id="loginModal"
@@ -133,6 +136,176 @@
       </div>
     </div>
     <!--Login Modal-->
+    <!--Admin Modal -->
+    <div
+      class="modal fade"
+      id="adminModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              ¿Qué desea hacer?
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Por favor seleccione una de las opciones:
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              id="delete"
+              data-bs-toggle="modal"
+              data-bs-target="#deleteModal"
+            >
+              Eliminar
+            </button>
+            <button
+              type="button"
+              class="btn btn-dark"
+              data-bs-toggle="modal"
+              data-bs-target="#updateModal"
+            >
+              Modificar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Admin Modal -->
+    <!--Delete Modal -->
+    <div
+      class="modal fade"
+      id="deleteModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            ¿Está seguro que desea eliminar el seminario?
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button type="button" class="btn btn-danger" id="deleteSeminar">
+              Aceptar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Delete Modal -->
+
+    <!--Update Modal -->
+    <div
+      class="modal fade"
+      id="updateModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label" for="title">Titulo</label>
+              <input
+                class="form-control"
+                type="text"
+                required
+                id="title"
+                placeholder="Ingresa el título"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="descriptionTxtArea">Descripción</label>
+              <textarea class="form-control" placeholder="Ingrese la descripción" id="descriptionTxtArea"></textarea>
+            </div>
+            <div class="mb-3">
+              <div class="mb-3">
+                <label class="form-label" for="title">Url de la portada</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  required
+                  id="picture"
+                  placeholder="Ingresa la url de la portada"
+                />
+            </div>
+            <div class="mb-3">
+              <label for="difficult">Dificultad</label>
+              <input
+                class="form-control"
+                id="difficult"
+                type="number"
+                max="5"
+                min="0"
+                step="1"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="stars">Rango</label>
+              <input
+                class="form-control"
+                id="stars"
+                type="number"
+                max="5"
+                min="0"
+                step="1"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              data-bs-dismiss="modal"
+              type="button"
+              class="btn btn-secondary"
+            >
+              Cancelar
+            </button>
+            <button type="button" class="btn btn-primary" id="update">
+              Guardar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Update Modal -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
@@ -141,5 +314,6 @@
     <script src="../js/services/init.app.js" type="module"></script>
     <script src="../js/services/security.context.js" type="module"></script>
     <script src="../js/login.js" type="module"></script>
+    <script src="../js/admin.js" type="module"></script>
   </body>
 </html>
