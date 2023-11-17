@@ -36,7 +36,7 @@ function getArrayAndReplace(newSeminar) {
 function updateSeminar(id, title, description, date, time, picture, speakers) {
   const seminars = getSeminars();
   if (seminars !== null && seminars.length > 0) {
-    let index = serminars.findIndex(function (seminar) {
+    let index = seminars.findIndex(function (seminar) {
       return seminar.id === id;
     });
     let seminar = seminars[index];
