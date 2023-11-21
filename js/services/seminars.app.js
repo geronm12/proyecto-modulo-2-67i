@@ -6,9 +6,17 @@ function getSeminars() {
   return GetItem(LOCAL_STORAGE_KEYS.seminar);
 }
 //#endregion
-function createSeminar(title, description,date,time, picture, difficult, rank) {
+function createSeminar(
+  title,
+  description,
+  date,
+  time,
+  picture,
+  difficult,
+  rank
+) {
   let seminars = getArrayAndReplace({
-    id: generateUniqueId(), // Ensure you have a function to generate unique IDs
+    id: crypto.randomUUID(), // Ensure you have a function to generate unique IDs
     title,
     description,
     date,
@@ -19,14 +27,13 @@ function createSeminar(title, description,date,time, picture, difficult, rank) {
   });
   // Guardamos el array en el local storage
   SetItem(LOCAL_STORAGE_KEYS.seminar, seminars);
-} 
+}
 //#region  Add User (A - Alta)
-
 
 function getArrayAndReplace(newSeminar) {
   let seminars = getSeminars();
 
-  if (users === null) {
+  if (seminars === null) {
     seminars = [];
   }
 
@@ -35,7 +42,18 @@ function getArrayAndReplace(newSeminar) {
   return seminars;
 }
 
-function updateSeminar(id, title, description, date, time, picture, currentDifficult, newDifficult, currentStars, newStars) {
+function updateSeminar(
+  id,
+  title,
+  description,
+  date,
+  time,
+  picture,
+  currentDifficult,
+  newDifficult,
+  currentStars,
+  newStars
+) {
   const seminars = getSeminars();
   if (seminars !== null && seminars.length > 0) {
     let index = seminars.findIndex(function (seminar) {
@@ -59,7 +77,6 @@ function updateSeminar(id, title, description, date, time, picture, currentDiffi
   }
 }
 
-
 function deleteSeminar(id) {
   const seminars = getSeminars();
 
@@ -76,7 +93,6 @@ function getSeminarById(id) {
   const seminars = getSeminars();
   return seminars.find((seminar) => seminar.id === id);
 }
-
 
 //#endregion
 export {

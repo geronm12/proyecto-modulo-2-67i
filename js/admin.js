@@ -12,20 +12,26 @@ import { getUsers } from "./services/user.app.js";
 const usersTable = document.getElementById("users-table");
 const seminarsTable = document.getElementById("seminars-table");
 const deleteSeminarBtn = document.getElementById("deleteSeminar");
-const createSeminarBtn= document.getElementById("addSeminar");
-const titulo = document.getElementById("createTitle").value;
-const descripcion = document.getElementById("createDescription").value;
-const fecha = document.getElementById("createDate").value;
-const hora = document.getElementById("createTime").value;
-const imagen = document.getElementById("createPicture").value;
-const dificultad = document.getElementById("createDifficult").value;
-const estrellas = document.getElementById("createStars").value;
+
+//#region  Create
+const createSeminarBtn = document.getElementById("addSeminar");
+const createTitle = document.getElementById("createTitle");
+const createDescription = document.getElementById("createDescription");
+const createDate = document.getElementById("createDate");
+const createHour = document.getElementById("createTime");
+const createPicture = document.getElementById("createPicture");
+const createDifficult = document.getElementById("createDifficult");
+const createStars = document.getElementById("createStars");
+//#endregion
+
+//#region  Update
 const updateSeminarBtn = document.getElementById("update");
 const updatePicture = document.getElementById("picture");
 const updateDifficult = document.getElementById("difficult");
 const updateStars = document.getElementById("stars");
 const updateDescription = document.getElementById("descriptionTxtArea");
 const updateTitle = document.getElementById("title");
+//#endregion
 
 //#endregion HTML References
 
@@ -57,17 +63,10 @@ refresh(refreshSeminars);
 //#endregion Init Data
 
 //#region  Events
-createSeminarBtn.addEventListener("click", () =>{
-  createSeminar(
-    titulo,
-    descripcion,
-    fecha,
-    hora,
-    imagen,
-    dificultad,
-    estrellas,
-  );
-} );
+createSeminarBtn.addEventListener("click", () => {
+  console.log("hola");
+});
+
 deleteSeminarBtn.addEventListener("click", () => {
   deleteSeminar(currents.seminar.id);
   window.location.reload();
@@ -82,49 +81,16 @@ updateSeminarBtn.addEventListener("click", () => {
       currents.seminar.date,
       currents.seminar.time,
       updatePicture.value,
-      currents.seminar.difficult,  // Mantener la dificultad actual
-      updateDifficult.value,       // Nueva dificultad
-      currents.seminar.stars,       // Mantener las estrellas actuales
-      updateStars.value            // Nuevas estrellas
+      currents.seminar.difficult, // Mantener la dificultad actual
+      updateDifficult.value, // Nueva dificultad
+      currents.seminar.stars, // Mantener las estrellas actuales
+      updateStars.value // Nuevas estrellas
     );
     // Actualizar la interfaz después de la modificación
     refresh(refreshSeminars);
   }
 });
-/*
-// Obtén el formulario y escucha el evento de envío
-const crearSeminarioForm = document.getElementById("crearSeminarioForm");
 
-crearSeminarioForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  // Obtén los valores del formulario
-  const titulo = document.getElementById("titulo").value;
-  const fecha = document.getElementById("fecha").value;
-  const hora = document.getElementById("hora").value;
-  const descripcion = document.getElementById("descripcion").value;
-  const imagen = document.getElementById("imagen").value;
-  const dificultad = document.getElementById("dificultad").value;
-  const estrellas = document.getElementById("estrellas").value;
-
-  // Llama a la función createSeminar para agregar el nuevo seminario
-  createSeminar(
-    titulo,
-    descripcion,
-    fecha,
-    hora,
-    imagen,
-    dificultad,
-    estrellas
-  );
-
-  // Puedes realizar acciones adicionales después de agregar el seminario, si es necesario
-  refresh(refreshSeminars);
-
-  // Cierra el modal
-  $("#crearSeminarioModal").modal("hide");
-});
- */
 //#endregion Events
 
 //#region Functions

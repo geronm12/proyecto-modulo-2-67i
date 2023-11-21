@@ -35,7 +35,13 @@
     </header>
     <main>
       <section class="container fluid center">
-        <button class="btn btn-dark"  id="addSeminar" data-bs-toggle="modal" data-bs-target="#createSeminarModal">Agregar Seminario</button>
+        <button
+          class="btn btn-dark"
+          data-bs-toggle="modal"
+          data-bs-target="#createModal"
+        >
+          Agregar Seminario
+        </button>
       </section>
       <section class="container mt-5">
         <table class="table">
@@ -254,7 +260,11 @@
             </div>
             <div class="mb-3">
               <label for="descriptionTxtArea">Descripción</label>
-              <textarea class="form-control" placeholder="Ingrese la descripción" id="descriptionTxtArea"></textarea>
+              <textarea
+                class="form-control"
+                placeholder="Ingrese la descripción"
+                id="descriptionTxtArea"
+              ></textarea>
             </div>
             <div class="mb-3">
               <div class="mb-3">
@@ -266,96 +276,130 @@
                   id="picture"
                   placeholder="Ingresa la url de la portada"
                 />
+              </div>
+              <div class="mb-3">
+                <label for="difficult">Dificultad</label>
+                <input
+                  class="form-control"
+                  id="difficult"
+                  type="number"
+                  max="5"
+                  min="0"
+                  step="1"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="stars">Rango</label>
+                <input
+                  class="form-control"
+                  id="stars"
+                  type="number"
+                  max="5"
+                  min="0"
+                  step="1"
+                />
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="difficult">Dificultad</label>
-              <input
-                class="form-control"
-                id="difficult"
-                type="number"
-                max="5"
-                min="0"
-                step="1"
-              />
+            <div class="modal-footer">
+              <button
+                data-bs-dismiss="modal"
+                type="button"
+                class="btn btn-secondary"
+              >
+                Cancelar
+              </button>
+              <button type="button" class="btn btn-primary" id="update">
+                Guardar
+              </button>
             </div>
-            <div class="mb-3">
-              <label for="stars">Rango</label>
-              <input
-                class="form-control"
-                id="stars"
-                type="number"
-                max="5"
-                min="0"
-                step="1"
-              />
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              data-bs-dismiss="modal"
-              type="button"
-              class="btn btn-secondary"
-            >
-              Cancelar
-            </button>
-            <button type="button" class="btn btn-primary" id="update">
-              Guardar
-            </button>
           </div>
         </div>
       </div>
     </div>
     <!--Update Modal -->
     <!-- Create  Modal -->
-<div 
-class="modal fade"
- id="createSeminarModal" 
- tabindex="-2" 
- aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="createSeminarioModalLabel">Crear Seminario</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="createSeminarForm">
-          <div class="mb-3">
-            <label for="createTitle" class="form-label">Título</label>
-            <input type="text" class="form-control" id="createTitle" required>
+    <div
+      class="modal fade"
+      id="createModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div clasFs="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar</h1>
           </div>
-          <div class="mb-3">
-            <label for="createDescription" class="form-label">Descripción</label>
-            <textarea class="form-control" id="createDescription" rows="3" required></textarea>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label" for="title">Titulo</label>
+              <input
+                class="form-control"
+                type="text"
+                required
+                id="title"
+                placeholder="Ingresa el título"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="descriptionTxtArea">Descripción</label>
+              <textarea
+                class="form-control"
+                placeholder="Ingrese la descripción"
+                id="descriptionTxtArea"
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <div class="mb-3">
+                <label class="form-label" for="title">Url de la portada</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  required
+                  id="picture"
+                  placeholder="Ingresa la url de la portada"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="difficult">Dificultad</label>
+                <input
+                  class="form-control"
+                  id="difficult"
+                  type="number"
+                  max="5"
+                  min="0"
+                  step="1"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="stars">Rango</label>
+                <input
+                  class="form-control"
+                  id="stars"
+                  type="number"
+                  max="5"
+                  min="0"
+                  step="1"
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                data-bs-dismiss="modal"
+                type="button"
+                class="btn btn-secondary"
+              >
+                Cancelar
+              </button>
+              <button type="button" class="btn btn-primary" id="addSeminar">
+                Guardar
+              </button>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="createDate" class="form-label">Fecha</label>
-            <input type="date" class="form-control" id="createDate" required>
-          </div>
-          <div class="mb-3">
-            <label for="createTime" class="form-label">Hora</label>
-            <input type="time" class="form-control" id="createTime" required>
-          </div>
-          <div class="mb-3">
-            <label for="createPicture" class="form-label">Imagen</label>
-            <input type="text" class="form-control" id="createPicture" required>
-          </div>
-          <div class="mb-3">
-            <label for="createDifficult" class="form-label">Dificultad</label>
-            <input type="text" class="form-control" id="createDifficult" required>
-          </div>
-          <div class="mb-3">
-            <label for="createStars" class="form-label">Estrellas</label>
-            <input type="number" class="form-control" id="createStars" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Crear Seminario</button>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<!--fin createmodal-->
+    <!--Create Modal-->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
