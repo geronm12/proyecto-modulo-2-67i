@@ -6,20 +6,22 @@ function getSeminars() {
   return GetItem(LOCAL_STORAGE_KEYS.seminar);
 }
 //#endregion
-
-//#region  Add User (A - Alta)
-function createSeminar(title, description, date, time, picture, speakers) {
+function createSeminar(title, description,date,time, picture, difficult, rank) {
   let seminars = getArrayAndReplace({
+    id: generateUniqueId(), // Ensure you have a function to generate unique IDs
     title,
     description,
     date,
     time,
     picture,
-    speakers,
+    difficult,
+    rank,
   });
-  //guardamos el array en el local storage
+  // Guardamos el array en el local storage
   SetItem(LOCAL_STORAGE_KEYS.seminar, seminars);
-}
+} 
+//#region  Add User (A - Alta)
+
 
 function getArrayAndReplace(newSeminar) {
   let seminars = getSeminars();
@@ -33,10 +35,10 @@ function getArrayAndReplace(newSeminar) {
   return seminars;
 }
 
-function updateSeminar(id, title, description, date, time, picture, speakers) {
+function updateSeminar(id, title, description, date, time, picture, currentDifficult, newDifficult, currentStars, newStars) {
   const seminars = getSeminars();
   if (seminars !== null && seminars.length > 0) {
-    let index = serminars.findIndex(function (seminar) {
+    let index = seminars.findIndex(function (seminar) {
       return seminar.id === id;
     });
     let seminar = seminars[index];
@@ -45,11 +47,18 @@ function updateSeminar(id, title, description, date, time, picture, speakers) {
     seminar.date = date;
     seminar.time = time;
     seminar.picture = picture;
-    seminar.speakers = speakers;
+    // Actualizar dificultad y estrellas solo si hay un cambio
+    if (currentDifficult !== newDifficult) {
+      seminar.difficult = newDifficult;
+    }
+    if (currentStars !== newStars) {
+      seminar.stars = newStars;
+    }
     seminars[index] = seminar;
     SetItem(LOCAL_STORAGE_KEYS.seminar, seminars);
   }
 }
+
 
 function deleteSeminar(id) {
   const seminars = getSeminars();
@@ -67,6 +76,7 @@ function getSeminarById(id) {
   const seminars = getSeminars();
   return seminars.find((seminar) => seminar.id === id);
 }
+
 
 //#endregion
 export {
