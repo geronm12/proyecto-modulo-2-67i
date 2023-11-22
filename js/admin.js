@@ -7,6 +7,15 @@ import {
   getSeminars,
 } from "./services/seminars.app.js";
 import { getUsers } from "./services/user.app.js";
+import { GetItem } from "../js/services/local-storage.app.js";
+import { LOCAL_STORAGE_KEYS } from "./configurations/keys.config.js";
+import { ROLES_VALUES } from "./configurations/seed.js";
+
+const userLogged = GetItem(LOCAL_STORAGE_KEYS.activeUser);
+
+if ((userLogged && userLogged.rol.id !== ROLES_VALUES.ADMIN) || !userLogged) {
+  window.location.href = "/";
+}
 
 //#region HTML  References
 const usersTable = document.getElementById("users-table");
@@ -16,12 +25,16 @@ const deleteSeminarBtn = document.getElementById("deleteSeminar");
 //#region  Create
 const createSeminarBtn = document.getElementById("addSeminar");
 const createTitle = document.getElementById("createTitle");
-const createDescription = document.getElementById("createDescription");
-const createDate = document.getElementById("createDate");
-const createHour = document.getElementById("createTime");
+const createDescription = document.getElementById("createDescriptionTxtArea");
 const createPicture = document.getElementById("createPicture");
 const createDifficult = document.getElementById("createDifficult");
 const createStars = document.getElementById("createStars");
+
+let _createTitle,
+  _createDescription,
+  _createPicture,
+  _createDifficult,
+  _createStars;
 //#endregion
 
 //#region  Update
@@ -47,12 +60,6 @@ let currents = {
   user: {},
 };
 
-let _updateTitle,
-  _updateDifficult,
-  _updateStars,
-  _updatePicture,
-  _updateDescriptionTextArea = "";
-
 //variables de creacion
 
 //#endregion Variables
@@ -64,7 +71,17 @@ refresh(refreshSeminars);
 
 //#region  Events
 createSeminarBtn.addEventListener("click", () => {
-  console.log("hola");
+  createSeminar(
+    _createTitle,
+    _createDescription,
+    Date.now(),
+    "19:00hs",
+    _createPicture,
+    _createDifficult,
+    _createStars
+  );
+  refreshSeminars();
+  document.getElementById("notAdd")?.click();
 });
 
 deleteSeminarBtn.addEventListener("click", () => {
@@ -89,8 +106,26 @@ updateSeminarBtn.addEventListener("click", () => {
     // Actualizar la interfaz después de la modificación
     refresh(refreshSeminars);
   }
+  document.getElementById("notUpdate")?.click();
 });
 
+//#region Create inptus Events
+createTitle.addEventListener("change", (e) => {
+  _createTitle = e.target.value;
+});
+createDescription.addEventListener("change", (e) => {
+  _createDescription = e.target.value;
+});
+createPicture.addEventListener("change", (e) => {
+  _createPicture = e.target.value;
+});
+createDifficult.addEventListener("change", (e) => {
+  _createDifficult = +e.target.value;
+});
+createStars.addEventListener("change", (e) => {
+  _createStars = +e.target.value;
+});
+//#endregion Create Inputs Events
 //#endregion Events
 
 //#region Functions

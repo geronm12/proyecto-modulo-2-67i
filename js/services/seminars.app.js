@@ -13,7 +13,7 @@ function createSeminar(
   time,
   picture,
   difficult,
-  rank
+  stars
 ) {
   let seminars = getArrayAndReplace({
     id: crypto.randomUUID(), // Ensure you have a function to generate unique IDs
@@ -23,7 +23,7 @@ function createSeminar(
     time,
     picture,
     difficult,
-    rank,
+    stars,
   });
   // Guardamos el array en el local storage
   SetItem(LOCAL_STORAGE_KEYS.seminar, seminars);

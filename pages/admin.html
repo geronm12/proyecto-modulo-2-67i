@@ -305,6 +305,7 @@
                 data-bs-dismiss="modal"
                 type="button"
                 class="btn btn-secondary"
+                id="notUpdate"
               >
                 Cancelar
               </button>
@@ -317,6 +318,7 @@
       </div>
     </div>
     <!--Update Modal -->
+
     <!-- Create  Modal -->
     <div
       class="modal fade"
@@ -332,39 +334,41 @@
           </div>
           <div class="modal-body">
             <div class="mb-3">
-              <label class="form-label" for="title">Titulo</label>
+              <label class="form-label" for="createTitle">Titulo</label>
               <input
                 class="form-control"
                 type="text"
                 required
-                id="title"
+                id="createTitle"
                 placeholder="Ingresa el título"
               />
             </div>
             <div class="mb-3">
-              <label for="descriptionTxtArea">Descripción</label>
+              <label for="createDescriptionTxtArea">Descripción</label>
               <textarea
                 class="form-control"
                 placeholder="Ingrese la descripción"
-                id="descriptionTxtArea"
+                id="createDescriptionTxtArea"
               ></textarea>
             </div>
             <div class="mb-3">
               <div class="mb-3">
-                <label class="form-label" for="title">Url de la portada</label>
+                <label class="form-label" for="createPicture"
+                  >Url de la portada</label
+                >
                 <input
                   class="form-control"
                   type="text"
                   required
-                  id="picture"
+                  id="createPicture"
                   placeholder="Ingresa la url de la portada"
                 />
               </div>
               <div class="mb-3">
-                <label for="difficult">Dificultad</label>
+                <label for="createDifficult">Dificultad</label>
                 <input
                   class="form-control"
-                  id="difficult"
+                  id="createDifficult"
                   type="number"
                   max="5"
                   min="0"
@@ -372,10 +376,10 @@
                 />
               </div>
               <div class="mb-3">
-                <label for="stars">Rango</label>
+                <label for="createStars">Rango</label>
                 <input
                   class="form-control"
-                  id="stars"
+                  id="createStars"
                   type="number"
                   max="5"
                   min="0"
@@ -388,6 +392,7 @@
                 data-bs-dismiss="modal"
                 type="button"
                 class="btn btn-secondary"
+                id="notAdd"
               >
                 Cancelar
               </button>
@@ -400,6 +405,8 @@
       </div>
     </div>
     <!--Create Modal-->
+
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
