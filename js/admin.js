@@ -70,19 +70,6 @@ refresh(refreshSeminars);
 //#endregion Init Data
 
 //#region  Events
-createSeminarBtn.addEventListener("click", () => {
-  createSeminar(
-    _createTitle,
-    _createDescription,
-    Date.now(),
-    "19:00hs",
-    _createPicture,
-    _createDifficult,
-    _createStars
-  );
-  refreshSeminars();
-  document.getElementById("notAdd")?.click();
-});
 
 deleteSeminarBtn.addEventListener("click", () => {
   deleteSeminar(currents.seminar.id);
@@ -110,6 +97,7 @@ updateSeminarBtn.addEventListener("click", () => {
 });
 
 //#region Create inptus Events
+
 createTitle.addEventListener("change", (e) => {
   _createTitle = e.target.value;
 });
